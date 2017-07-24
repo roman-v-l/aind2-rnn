@@ -36,15 +36,15 @@ def build_part1_RNN(window_size):
 def cleaned_text(text):
     punctuation = ['!', ',', '.', ':', ';', '?']
 
+    # Get unique characters from the text
     unique_chars = set(text)
-    print(unique_chars)
 
+    # Get all lowercase ascii characters
     ascii = set(string.ascii_lowercase)
 
     atypical_chars = unique_chars - ascii - set(punctuation)
 
-    print(atypical_chars)
-
+    # Replace all atypical symbols
     for c in atypical_chars:
         text = text.replace(c, ' ')
 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
     text = text.replace('\r', ' ')
 
     text = cleaned_text(text)
-    #text = cleaned_text(text)
+    text = cleaned_text(text)
 
     # shorten any extra dead space created above
     text = text.replace('  ', ' ')
